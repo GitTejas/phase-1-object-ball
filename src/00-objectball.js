@@ -123,7 +123,6 @@ function homeTeamName() {
     return game.home.teamName
   }
 
-
   function awayTeamName() {
     const game = gameObject();
     return game.away.teamName
