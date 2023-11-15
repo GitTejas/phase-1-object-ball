@@ -1,4 +1,5 @@
-    const allData = {
+function gameObject() {
+    return {
         home: {
             teamName: "Brooklyn Nets",
             colors: ["Black", "White"],
@@ -113,28 +114,25 @@
             }
         }
     }
+    }
 
-function gameObject() {
-    return allData
-}
+const game = gameObject();
+
+
 
 function homeTeamName() {
-    const game = gameObject();
     return game.home.teamName
   }
 
   function awayTeamName() {
-    const game = gameObject();
     return game.away.teamName
   }
 
   function homePlayers() {
-    const game = gameObject();
     return game.home.players
   }
 
   function awayPlayers() {
-    const game = gameObject();
     return game.away.players
   }
 
@@ -246,6 +244,15 @@ function homeTeamName() {
   function allPlayers() {
     return everyPlayer
   }
+
+
+
+
+
+
+
+
+
 
 /*const game = gameObject()
 const homeTeam = homeTeamName()
