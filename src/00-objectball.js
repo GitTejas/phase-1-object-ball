@@ -331,3 +331,121 @@ function doesLongNameStealATon() {
         return true
     }
 }
+
+
+/////////////////////////////////////////////////////////////
+function mostPointsScored() {
+    let maxPoints = 0;
+    let playerName = '';
+  
+    // Iterate through the players in the home team
+    for (const player in game.home.players) {
+      const points = game.home.players[player].points;
+  
+      // Check if the current player has more points than the current maxPoints
+      if (points > maxPoints) {
+        maxPoints = points;
+        playerName = player;
+      }
+    }
+  
+    // Iterate through the players in the away team
+    for (const player in game.away.players) {
+      const points = game.away.players[player].points;
+  
+      // Check if the current player has more points than the current maxPoints
+      if (points > maxPoints) {
+        maxPoints = points;
+        playerName = player;
+      }
+    }
+  
+    return playerName;
+  }
+
+
+  function winningTeam() {
+    let homeTeamPoints = 0;
+    let awayTeamPoints = 0;
+  
+    // Calculate the total points for the home team
+    for (const player in game.home.players) {
+      homeTeamPoints += game.home.players[player].points;
+    }
+  
+    // Calculate the total points for the away team
+    for (const player in game.away.players) {
+      awayTeamPoints += game.away.players[player].points;
+    }
+  
+    // Compare the total points and determine the winning team
+    if (homeTeamPoints > awayTeamPoints) {
+      return game.home.teamName;
+    } else if (homeTeamPoints < awayTeamPoints) {
+      return game.away.teamName;
+    } else {
+      return "It's a tie!";
+    }
+  }
+
+
+
+  function playerWithLongestName() {
+    let longestName = '';
+    let playerName = '';
+  
+    // Iterate through the players in the home team
+    for (const player in game.home.players) {
+      const name = player;
+  
+      // Check if the current player's name is longer than the current longestName
+      if (name.length > longestName.length) {
+        longestName = name;
+        playerName = player;
+      }
+    }
+  
+    // Iterate through the players in the away team
+    for (const player in game.away.players) {
+      const name = player;
+  
+      // Check if the current player's name is longer than the current longestName
+      if (name.length > longestName.length) {
+        longestName = name;
+        playerName = player;
+      }
+    }
+  
+    return playerName;
+  }
+
+
+  function doesLongNameStealATon() {
+    const longestNamePlayer = playerWithLongestName();
+    let maxSteals = 0;
+  
+    // Iterate through the players in the home team
+    for (const player in game.home.players) {
+      const steals = game.home.players[player].steals;
+  
+      // Check if the current player has more steals than the current maxSteals
+      if (steals > maxSteals) {
+        maxSteals = steals;
+      }
+    }
+  
+    // Iterate through the players in the away team
+    for (const player in game.away.players) {
+      const steals = game.away.players[player].steals;
+  
+      // Check if the current player has more steals than the current maxSteals
+      if (steals > maxSteals) {
+        maxSteals = steals;
+      }
+    }
+  
+    // Compare the number of steals for the longest name player with the maxSteals
+    return game.home.players[longestNamePlayer].steals === maxSteals;
+  }
+
+  /////////////////////////////////////////////////////////////
