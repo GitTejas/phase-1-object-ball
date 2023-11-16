@@ -262,22 +262,18 @@ function teamColors(team) {
     }
 }
 
-
-function teamNames(game) {
-
+function teamNames() {
+    const hTeam = game.home.teamName;
+    const aTeam = game.away.teamName;
+    return [hTeam, aTeam];
 }
   
 
-function playerNumbers(team) {
-    if (team === "Brooklyn Nets") {
-        return game.home.players["name"].number
-    }
-    else if (team === "Charlotte Hornets") {
-        return game.away.players["name"].number
-    }
+function playerNumbers(teamName) {
+  const team = game.home.teamName === teamName ? game.home : game.away;
+  const playerNumbers = Object.values(team.players).map(player => player.number);
+  return playerNumbers;
 }
-
-
 
 
 function playerStats(name) {
@@ -286,9 +282,35 @@ function playerStats(name) {
 
 
 function bigShoeRebounds() {
-
-}
-
+    let maxShoeSize = 0;
+    let maxRebounds = 0;
+  
+    // Iterate through the players in the home team
+    for (const player in game.home.players) {
+      const shoeSize = game.home.players[player].shoe;
+      const rebounds = game.home.players[player].rebounds;
+  
+      // Check if the current player has a larger shoe size
+      if (shoeSize > maxShoeSize) {
+        maxShoeSize = shoeSize;
+        maxRebounds = rebounds;
+      }
+    }
+  
+    // Iterate through the players in the away team
+    for (const player in game.away.players) {
+      const shoeSize = game.away.players[player].shoe;
+      const rebounds = game.away.players[player].rebounds;
+  
+      // Check if the current player has a larger shoe size
+      if (shoeSize > maxShoeSize) {
+        maxShoeSize = shoeSize;
+        maxRebounds = rebounds;
+      }
+    }
+  
+    return maxRebounds;
+  }
 
 
 function mostPointsScored() {
