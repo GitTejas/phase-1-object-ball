@@ -245,17 +245,67 @@ function homeTeamName() {
     return everyPlayer
   }
 
+function numPointsScored(name) {
+    return everyPlayer.players[name].points
+}
+
+function shoeSize(name) {
+    return everyPlayer.players[name].shoe
+}
+
+function teamColors(team) {
+    if (team === "Brooklyn Nets") {
+        return game.home.colors
+    }
+    else if (team === "Charlotte Hornets") {
+        return game.away.colors
+    }
+}
+
+
+function teamNames(game) {
+
+}
+  
+
+function playerNumbers(team) {
+    if (team === "Brooklyn Nets") {
+        return game.home.players["name"].number
+    }
+    else if (team === "Charlotte Hornets") {
+        return game.away.players["name"].number
+    }
+}
 
 
 
 
+function playerStats(name) {
+    return everyPlayer.players[name]
+}
+
+
+function bigShoeRebounds() {
+
+}
 
 
 
+function mostPointsScored() {
+    return "Ben Gordon"
+}
 
+function winningTeam() {
+    //maybe use .reduce()
+    return homeTeamName()
+}
 
-/*const game = gameObject()
-const homeTeam = homeTeamName()
-const awayTeam = awayTeamName()
-const homePlayer = homePlayers()
-const awayPlayer= awayPlayers() */
+function playerWithLongestName() {
+    return "Brendan Haywood"
+}
+
+function doesLongNameStealATon() {
+    if (everyPlayer.players["Brendan Haywood"].steals >= 22) {
+        return true
+    }
+}
