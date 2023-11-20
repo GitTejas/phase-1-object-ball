@@ -378,7 +378,6 @@ function bigShoeRebounds() {
     return playerName;
   }
 
-
   function doesLongNameStealATon() {
     if (everyPlayer.players["Brendan Haywood"].steals >= 22) {
         return true
