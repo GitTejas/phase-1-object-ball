@@ -308,7 +308,7 @@ function bigShoeRebounds() {
     return maxRebounds;
   }
 
-  
+
   function mostPointsScored() {
     let maxPoints = 0;
     let playerName = '';
